@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gâteau Anniversaire Nicolas</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* police stylée */
+
+body {
+  background: #87ceeb;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Texte Joyeux anniversaire */
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #ff4081;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Conteneur centré */
+.cake-container {
+  position: relative;
+  width: 180px;
+  height: 220px;
+}
+
+/* Chaque couche de gâteau */
+.cake-layer {
+  width: 100%;
+  height: 40px;
+  background: #ff9eb5;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 5px 0 #e57373;
+  margin-top: -10px;
+  transform: translateY(-400px);
+  animation: fall 0.8s ease-out forwards;
+}
+
+.cake-layer:nth-child(1) { animation-delay: 0s; }
+.cake-layer:nth-child(2) { animation-delay: 0.2s; }
+.cake-layer:nth-child(3) { animation-delay: 0.4s; }
+
+/* Crème liquide */
+.cream {
+  position: absolute;
+  top: -15px;
+  width: 100%;
+  height: 15px;
+  background: #fff;
+  border-radius: 50% 50% 50% 50%;
+  transform: scaleX(0);
+  transform-origin: top center;
+  animation: spread 0.7s forwards;
+  animation-timing-function: ease-out;
+  z-index: 1;
+}
+
+.cream:nth-child(1) { animation-delay: 0.8s; }
+.cream:nth-child(2) { animation-delay: 1s; }
+.cream:nth-child(3) { animation-delay: 1.2s; }
+
+/* Crème qui coule doucement */
+.cream::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 30px;
+  background: #fff;
+  border-radius: 10px;
+  left: 20%;
+  top: 100%;
+  transform: scaleY(0);
+  animation: drip 1s forwards;
+  animation-delay: inherit;
+}
+
+.cream::before {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 25px;
+  background: #fff;
+  border-radius: 10px;
+  left: 60%;
+  top: 100%;
+  transform: scaleY(0);
+  animation: drip 1s forwards;
+  animation-delay: inherit;
+}
+
+/* Bougie */
+.candle {
+  position: absolute;
+  width: 15px;
+  height: 50px;
+  background: #fff176;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  border-radius: 3px;
+  animation: rise 0.5s forwards;
+  animation-delay: 1.8s;
+}
+
+/* Flamme */
+.flame {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 15px;
+  height: 20px;
+  background: #ffb74d;
+  border-radius: 50%;
+  animation: flicker 0.2s infinite alternate;
+  animation-delay: 2.2s;
+}
+
+/* Chiffre 16 */
+.number {
+  position: absolute;
+  top: -130px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4081;
+  animation: appear 0.5s forwards;
+  animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes fall {
+  0% { transform: translateY(-400px); }
+  80% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes spread {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes drip {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes rise {
+  from { transform: translateX(-50%) scaleY(0); }
+  to { transform: translateX(-50%) scaleY(1); }
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); background: #ffb74d; }
+  100% { transform: translateX(-50%) scale(1.2); background: #ff9800; }
+}
+
+@keyframes appear {
+  from { transform: translateX(-50%) scale(0); opacity: 0; }
+  to { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<div class="title">Joyeux anniversaire Nicolas 🎉</div>
+
+<div class="cake-container">
+  <div class="cake-layer"></div>
+  <div class="cream"></div>
+  <div class="cake-layer"></div>
+  <div class="cream"></div>
+  <div class="cake-layer"></div>
+  <div class="cream"></div>
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+  <div class="number">16</div>
+</div>
+
+</body>
+</html>
